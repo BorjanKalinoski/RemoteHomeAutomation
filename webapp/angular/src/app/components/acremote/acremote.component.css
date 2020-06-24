@@ -1,0 +1,24 @@
+div[nz-row] {
+  margin: 16px 0 !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+button {
+  color: black;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.selected {
+  background: darkcyan;
+
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+fa-icon{
+  font-size: 22px;
+}

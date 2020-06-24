@@ -1,0 +1,25 @@
+<div nz-row [ngClass]="'container'">
+  <!--  <h3 [ngStyle]="{ margin: '16px 0' }">Large Size</h3>-->
+  <div nz-col nzSpan="24">
+    <ul
+      nz-list
+      [nzDataSource]="devices"
+      nzBordered
+      nzSize="large"
+      [nzHeader]="'Devices:'"
+      [nzLoading]="this.fetchingDevices"
+      [nzNoResult]="devices===[]"
+    >
+      <a *ngFor="let device of devices" [routerLink]="device.deviceType === 'AC' ?  ['/ac',device.deviceName] : null">
+        <li nz-list-item nzNoFlex>
+          {{ device.deviceName }}
+          <ng-template [ngIf]="device.deviceType==='MAILBOX'">
+            <fa-icon [icon]="faMail">
+
+            </fa-icon>
+          </ng-template>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>

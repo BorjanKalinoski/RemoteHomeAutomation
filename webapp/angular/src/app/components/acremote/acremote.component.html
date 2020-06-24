@@ -1,0 +1,64 @@
+<div nz-row [ngClass]="'container'">
+  <div nz-col nzSpan="24" [ngClass]="'ant-list-bordered'">
+  <div nz-row>
+    <div nz-col nzSpan="2"></div>
+    <fa-icon nz-tooltip [ngStyle]="{'color': isConsistent ? 'green' : 'yellow'}" [nzTooltipTitle]="isConsistent ? 'Info is good!' : 'Information is not consistent with device' " [icon]="faInfo" nz-col nzSpan="2"></fa-icon>
+    <div nz-col nzSpan="6"></div>
+    <div nz-col nzSpan="4">
+      <button  [ngClass]="ac.state.power==true ? 'selected' : null" [disabled]="isDisabled" (click)="onPowerChange()">
+        <fa-icon [icon]="faPower"></fa-icon>
+      </button>
+    </div>
+    <div nz-col nzSpan="4">
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="2">MODE</div>
+    <button  [ngClass]="ac.state.mode==ModeType.HEAT ? 'selected' : null"  nz-col nzSpan="2" [disabled]="isDisabled" (click)="onModeChange(ModeType.HEAT)">
+      <fa-icon [icon]="faHeat"></fa-icon>
+    </button>
+    <button [ngClass]="ac.state.mode==ModeType.COOL ? 'selected' : null"  nz-col nzSpan="2" [disabled]="isDisabled" (click)="onModeChange(ModeType.COOL)" >
+      <fa-icon [icon]="faCool"></fa-icon>
+    </button>
+    <button  [ngClass]="ac.state.mode==ModeType.DRY ? 'selected' : null" nz-col nzSpan="2" [disabled]="isDisabled" (click)="onModeChange(ModeType.DRY)"  >
+      <fa-icon [icon]="faDry"></fa-icon>
+    </button>
+    <button [ngClass]="ac.state.mode==ModeType.FAN ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="2" (click)="onModeChange(ModeType.FAN)">
+      <fa-icon [icon]="faFan"></fa-icon>
+    </button>
+    <button [ngClass]="ac.state.mode==ModeType.AUTO ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="2" (click)="onModeChange(ModeType.AUTO)">
+      <fa-icon  [icon]="faAuto"></fa-icon>
+    </button>
+    <div nz-col nzSpan="4"></div>
+    <div nz-col nzSpan="2" >{{ ac.state.temp}} &#8451;</div>
+    <button nz-col nzSpan="2" [disabled]="isDisabled"  (click)="onTempChange(ac.state.temp + 1)">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+    <button  nz-col nzSpan="2" [disabled]="isDisabled" (click)="onTempChange(ac.state.temp - 1)" >
+      <fa-icon [icon]="faMinus"></fa-icon>
+    </button>
+    <div nz-col nzSpan="2"></div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="2">FAN</div>
+    <button [ngClass]="ac.state.fan==FanType.AUTO ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="2" (click)="onFanChange(FanType.AUTO)">
+      <fa-icon  [icon]="faAuto"></fa-icon>
+    </button>
+    <button [ngClass]="ac.state.fan==FanType.LOW ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="2" (click)="onFanChange(FanType.LOW)">
+      <fa-icon [icon]="faLow"></fa-icon>
+    </button>
+    <button [ngClass]="ac.state.fan==FanType.MED ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="2" (click)="onFanChange(FanType.MED)">
+      <fa-icon [icon]="faMed"></fa-icon>
+    </button>
+    <button [ngClass]="ac.state.fan==FanType.HI ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="2" (click)="onFanChange(FanType.HI)">
+      <fa-icon [icon]="faHigh"></fa-icon>
+    </button>
+    <div nz-col nzSpan="6"></div>
+    <div nz-col nzSpan="2">SWING</div>
+    <button [ngClass]="ac.state.swing ? 'selected' : null" [disabled]="isDisabled" nz-col nzSpan="4" (click)="onSwingChange()">
+      <fa-icon [icon]="ac.state.swing ? faToggleOn : faToggleOff"></fa-icon>
+    </button>
+    <div nz-col nzSpan="2"></div>
+  </div>
+  </div>
+</div>
